@@ -1,0 +1,16 @@
+{
+  "expo": {
+    "name": "music-player",
+    "slug": "music-player",
+    "version": "1.0.0",
+    "description": "A react native cross platform application",
+    "sdkVersion": "49.0.0",
+    "platforms": ["android", "ios"],
+    "ios": {
+      "bundleIdentifier": "com.anonymous.music-player"
+    },
+    "android": {
+      "package": "com.anonymous.musicplayer"
+    }
+  }
+}
