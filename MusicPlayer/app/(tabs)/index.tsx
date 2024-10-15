@@ -4,6 +4,7 @@ import { Text, View, Button, StyleSheet } from 'react-native';
 export default function HomePage() {
   const navigation = useNavigation();
   return (
+    
     <View style={styles.backgroundHomeColor}>
       <Button title="Playlists" onPress={()=> {
       //Mymusic
@@ -30,3 +31,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF',
   },
 });
+
+//
