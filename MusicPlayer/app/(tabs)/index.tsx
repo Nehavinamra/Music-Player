@@ -1,5 +1,5 @@
 import { useNavigation } from "expo-router";
-import { Text, View, Button, StyleSheet, TouchableOpacity } from "react-native";
+import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
 export default function HomePage() {
@@ -8,9 +8,25 @@ export default function HomePage() {
     <View>
       <View
         style={{
+          alignItems: "centre",
+          margin: 100,
+          flexDirection: "row",
+          marginLeft: 40,
+        }}
+      >
+        <Ionicons
+          name="search-outline"
+          size={24}
+          onPress={() => {
+            navigation.navigate("../search");
+          }}
+        />
+      </View>
+      <View
+        style={{
           flexDirection: "row",
           justifyContent: "space-evenly",
-          marginTop: 200,
+          marginTop: 2,
         }}
       >
         <TouchableOpacity
