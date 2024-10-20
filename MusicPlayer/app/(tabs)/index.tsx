@@ -18,7 +18,7 @@ export default function HomePage() {
           name="search-outline"
           size={24}
           onPress={() => {
-            navigation.navigate("../search");
+            navigation.navigate("/app/Search");
           }}
         />
       </View>
