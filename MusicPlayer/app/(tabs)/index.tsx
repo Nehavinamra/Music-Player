@@ -1,6 +1,7 @@
 import { useNavigation } from "expo-router";
-import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
+import { Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { useRoute } from "@react-navigation/native";
 
 export default function HomePage() {
   const navigation = useNavigation();
@@ -18,7 +19,7 @@ export default function HomePage() {
           name="search-outline"
           size={24}
           onPress={() => {
-            navigation.navigate("/app/Search");
+            navigation.navigate("../Search");
           }}
         />
       </View>
@@ -54,6 +55,37 @@ export default function HomePage() {
           <Text style={styles.txtinbutton}> Liked</Text>
         </TouchableOpacity>
       </View>
+      <View
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-evenly",
+          marginTop: 50,
+          marginLeft: 10,
+        }}
+      >
+        <TouchableOpacity
+          style={styles.playlist}
+          onPress={() => {
+            navigation.navigate("mymusic");
+          }}
+        >
+          <Image
+            source={require("../../assets/images/playlist01.jpeg")}
+            style={{ width: 150, height: 150 }}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.playlist}
+          onPress={() => {
+            navigation.navigate("mymusic");
+          }}
+        >
+          <Image
+            source={require("../../assets/images/playlist02.jpeg")}
+            style={{ width: 150, height: 150 }}
+          />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -68,6 +100,16 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+  },
+  playlist: {
+    backgroundColor: "#a9a9a9",
+    width: 150,
+    height: 150,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 20,
   },
   txtinbutton: {
     color: "white",
