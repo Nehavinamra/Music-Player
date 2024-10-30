@@ -2,7 +2,7 @@ import React from "react";
 import { Text, View, StyleSheet, TextInput } from "react-native";
 
 export default function Search() {
-  const [text] = React.useState("");
+  const text = React.useState("");
   return (
     <View style={{ flex: 0.4, alignItems: "center", justifyContent: "center" }}>
       <TextInput
