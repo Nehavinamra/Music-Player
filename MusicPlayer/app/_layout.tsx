@@ -4,6 +4,7 @@ export default function RootLayout() {
   return (
     <Stack>
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-      </Stack>
+      <Stack.Screen name="Search" options={{ headerShown: false }} />
+    </Stack>
   );
 }

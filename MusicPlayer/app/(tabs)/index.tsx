@@ -1,16 +1,16 @@
 import { useNavigation } from "expo-router";
 import { Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { useRoute } from "@react-navigation/native";
-
+import { router } from "expo-router";
 export default function HomePage() {
   const navigation = useNavigation();
   return (
     <View>
       <View
         style={{
-          alignItems: "centre",
+          alignItems: "center",
           margin: 100,
+          display: "flex",
           flexDirection: "row",
           marginLeft: 40,
         }}
@@ -19,7 +19,7 @@ export default function HomePage() {
           name="search-outline"
           size={24}
           onPress={() => {
-            navigation.navigate("../Search");
+            router.navigate("/Search");
           }}
         />
       </View>
