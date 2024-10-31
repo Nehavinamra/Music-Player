@@ -33,7 +33,7 @@ export default function HomePage() {
         <TouchableOpacity
           style={styles.someButton}
           onPress={() => {
-            navigation.navigate("mymusic");
+            navigation.navigate("Playlist");
           }}
         >
           <Text style={styles.txtinbutton}> Playlists</Text>
@@ -41,7 +41,7 @@ export default function HomePage() {
         <TouchableOpacity
           style={styles.someButton}
           onPress={() => {
-            navigation.navigate("mymusic");
+            navigation.navigate("/Playlist");
           }}
         >
           <Text style={styles.txtinbutton}> Genre</Text>
