@@ -4,9 +4,9 @@ import TabLayout from "./(tabs)/_layout";
 
 export default function Search() {
   const text = React.useState("");
-  TabLayout();
   return (
     <View style={{ flex: 0.4, alignItems: "center", justifyContent: "center" }}>
+      <TabLayout />
       <TextInput
         style={styles.searchstyle}
         value={text}
