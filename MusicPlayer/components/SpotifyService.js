@@ -1,10 +1,9 @@
 // SpotifyService.js
 
 import { Buffer } from "buffer";
-import { SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET } from ".env";
 
-const clientId = SPOTIFY_CLIENT_ID;
-const clientSecret = SPOTIFY_CLIENT_SECRET;
+const clientId = "";
+const clientSecret = "";
 const tokenUrl = "https://accounts.spotify.com/api/token";
 
 export async function getSpotifyAccessToken() {
