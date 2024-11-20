@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Audio } from "expo-av";
 import { useRoute } from "@react-navigation/native";
+import { LikedSongsContext } from "../../app/_layout";
 
 export default function MyMusic() {
   const route = useRoute();
   const [isPlaying, setIsPlaying] = useState(false);
   const [sound, setSound] = useState(null);
-
   const { song } = route.params; // Get the song object from navigation params
+  const songsContext = useContext(LikedSongsContext);
 
   const handlePlayPause = async () => {
     if (isPlaying) {
@@ -41,6 +42,25 @@ export default function MyMusic() {
     }
   };
 
+  const toggleLike = () => {
+    const isLiked = songsContext?.likedSongs.some(
+      (likedSong) => likedSong.id === song.id
+    );
+    if (isLiked) {
+      // Remove song from liked songs
+      songsContext?.setLikedSongs(
+        songsContext?.likedSongs.filter((likedSong) => likedSong.id !== song.id)
+      );
+    } else {
+      // Add song to liked songs
+      songsContext?.setLikedSongs([...songsContext?.likedSongs, song]);
+    }
+  };
+
+  const isLiked = songsContext?.likedSongs.some(
+    (likedSong) => likedSong.id === song.id
+  ); // Check if song is liked
+
   // Unload sound when the component unmounts
   useEffect(() => {
     return sound
@@ -52,16 +72,13 @@ export default function MyMusic() {
 
   return (
     <View style={styles.container}>
-      {/* Album Cover */}
       <Image
-        source={require("../../assets/images/playlist01.jpeg")} // Replace with dynamic album art if available
+        source={require("../../assets/images/playlist01.jpeg")}
         style={styles.albumCover}
       />
 
-      {/* Song Title */}
       <Text style={styles.songTitle}>{song.name}</Text>
 
-      {/* Progress Bar (optional: enhance to show playback progress) */}
       <View style={styles.progressContainer}>
         <Text style={styles.timeText}>0:00</Text>
         <View style={styles.progressBar}>
@@ -70,7 +87,6 @@ export default function MyMusic() {
         <Text style={styles.timeText}>0:30</Text>
       </View>
 
-      {/* Control Buttons */}
       <View style={styles.controls}>
         <TouchableOpacity>
           <Ionicons name="play-skip-back-outline" size={32} color="white" />
@@ -87,9 +103,12 @@ export default function MyMusic() {
         </TouchableOpacity>
       </View>
 
-      {/* Like Button */}
-      <TouchableOpacity style={styles.likeButton}>
-        <Ionicons name="heart-outline" size={32} color="white" />
+      <TouchableOpacity style={styles.likeButton} onPress={toggleLike}>
+        <Ionicons
+          name={isLiked ? "heart" : "heart-outline"}
+          size={32}
+          color={isLiked ? "red" : "white"}
+        />
       </TouchableOpacity>
     </View>
   );

@@ -1,10 +1,14 @@
+import React, { useState, createContext } from "react";
 import { useNavigation } from "expo-router";
 import { Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { router } from "expo-router";
+
 export default function HomePage() {
   const navigation = useNavigation();
+
   return (
+    // Provide the liked songs context
+
     <View>
       <View
         style={{
@@ -19,7 +23,7 @@ export default function HomePage() {
           name="search-outline"
           size={24}
           onPress={() => {
-            router.navigate("/Search");
+            navigation.navigate("Search");
           }}
         />
       </View>
