@@ -2,8 +2,8 @@
 
 import { Buffer } from "buffer";
 
-const clientId = "c93fe7c97d8c444494d0742b3458a635";
-const clientSecret = "91cc902a15b4413aa73d175cfcba00c0";
+const clientId = "";
+const clientSecret = "";
 const tokenUrl = "https://accounts.spotify.com/api/token";
 
 export async function getSpotifyAccessToken() {
